@@ -8,7 +8,7 @@ describe('Root', () => {
 
   test('display hello world', async () => {
     const { findByText } = await render(<Root />);
-    const element = await findByText('Hello World');
+    const element = await findByText('Hello World...');
     expect(element).toBeInTheDocument();
   });
 });
