@@ -6,7 +6,7 @@ This challenge is about creating several ui core components from the given desig
 We are looking for code quality, please follow best practices.
 As this components are part of a ui kit which is the foundation for any project, these core components need to be minimalistic, reusable and composable and have good documentation.
 
-[Design file for Figma](docs/BlueReceipt Coding Challenge.fig)
+[Design file for Figma](docs/BlueReceipt%20Coding%20Challenge.fig)
 
 ### - Implement a Checkbox
 
