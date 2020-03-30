@@ -1,0 +1,14 @@
+@import '../variables';
+
+.checkboxButton {
+  display: flex;
+  cursor: pointer;
+}
+
+.input {
+  display: none;
+}
+
+.disabled {
+  pointer-events: none;
+}
