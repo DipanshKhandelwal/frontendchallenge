@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { action } from '@storybook/addon-actions';
 
@@ -8,6 +8,9 @@ import TwoColumnGrid from '../TwoColumnGrid/TwoColumnGrid';
 import Label from '../Label/Label';
 import Button from '../Button/Button';
 import Toggle from '../Toggle/Toggle';
+import Dropdown from '../Dropdown/Dropdown';
+import DropdownItem from '../DropdownItem/DropdownItem';
+import Checkbox from '../Checkbox/Checkbox';
 
 export default { title: 'Form' };
 
@@ -29,6 +32,9 @@ interface Props {
 const Form: FC<Props> = ({ onSubmit }) => {
   const { register, handleSubmit, errors } = useForm();
   const mapSubmitHandler = useCallback((data) => onSubmit(data), [onSubmit]);
+
+  const [isOpen, setOpen] = useState(false);
+
 
   return (
     <form onSubmit={handleSubmit(mapSubmitHandler)}>
@@ -74,6 +80,18 @@ const Form: FC<Props> = ({ onSubmit }) => {
           defaultValue
           ref={register({})}
         />
+        <Dropdown
+          label='Checkbox with toggling'
+          isOpen={isOpen}
+          onFocus={() => setOpen(!isOpen)}
+          onBlur={() => setOpen(false)}
+        >
+          {[0, 1, 2, 3].map((index) => (
+            <DropdownItem key={index} onClick={() => setOpen(false)}>
+              <Checkbox name={`checkbox[${index}]`} ref={register} label={`checkbox ${index}`} />
+            </DropdownItem>
+          ))}
+        </Dropdown>
         <Button size='big' type='submit'>Submit</Button>
       </TwoColumnGrid>
     </form>
