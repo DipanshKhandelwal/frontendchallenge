@@ -1,0 +1,20 @@
+@import '../variables';
+
+.item {
+  padding: 12px 16px;
+  color: $gray-700;
+  font-size: 14px;
+  cursor: pointer;
+
+  &.error {
+    color: $red-600;
+  }
+
+  &:hover {
+    background: $gray-100;
+  }
+
+  & + .item {
+    border-top: 1px solid $gray-200;
+  }
+}
